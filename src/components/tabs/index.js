@@ -2,65 +2,6 @@ import React, {Component} from "react";
 import {Card, DataTable, Page, Checkbox, AppProvider} from "@shopify/polaris";
 import './tabs.css'
 
-//our props (data for the table)
-const props = [
-    {
-        id: 1,
-        name: 'Emerald Silk Gown',
-        price: '$875.00',
-        skuNumber: 124689,
-        netQuantity: 140,
-        netSales: '$122,500.00',
-        value: false,
-    },
-    {
-        id: 2,
-        name: 'Emerald Silk Gown',
-        price: '$875.00',
-        skuNumber: 24689,
-        netQuantity: 140,
-        netSales: '$102,200.00',
-        value: true,
-    },
-    {
-        id: 3,
-        name: 'Emerald Silk Gown',
-        price: '$875.00',
-        skuNumber: 224689,
-        netQuantity: 80,
-        netSales: '$99,107.00',
-        value: false,
-    },
-    {
-        id: 4,
-        name: 'Emerald Silk Gown',
-        price: '$375.00',
-        skuNumber: 4689,
-        netQuantity: 120,
-        netSales: '$22,500.00',
-        value: true,
-    },
-    {
-        id: 5,
-        name: 'Emerald Silk Gown',
-        price: '$375.00',
-        skuNumber: 4689,
-        netQuantity: 120,
-        netSales: '$22,500.00',
-        value: true,
-    },
-    {
-        id: 6,
-        name: 'Emerald Silk Gown',
-        price: '$375.00',
-        skuNumber: 4689,
-        netQuantity: 120,
-        netSales: '$22,500.00',
-        value: true,
-    },
-];
-
-
 class DataTables extends Component {
     state = {
         checkedArr: [],
@@ -71,11 +12,11 @@ class DataTables extends Component {
 
 //set our props in state
     componentDidMount() {
+        const {tableData} = this.props;
         this.setState({
-            checkedArr: props,
+            checkedArr: tableData ,
         }, () => this.getRows());
     };
-
 
 //add rows for the table, change count
     getRows = () => {
